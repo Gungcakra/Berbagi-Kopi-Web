@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Aladin-Regular';
+    src: url('../assets/fonts/Aladin-Regular.ttf')format('truetype'); /* Sesuaikan dengan jenis file */
+  }
+.tentang {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100%;
+    min-height: 100vh;
+  }
+  
+  .tentang-img{
+    justify-content: end;
+    align-items: center;
+  }
+  .tentang .bg {
+    width: 30rem;
+    height: auto;
+  }
+  
+
+.tentang-title {
+    color: transparent;
+    font-family: "Aladin-Regular", Helvetica;
+    font-size: 5rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tentang .text-wrapper {
+    color: #b78e6f;
+  }
+  
+  .tentang .span {
+    color: #000000;
+  }
+
+  .tentang-desk{
+    margin: 0;
+    max-width: 50%;
+    font-size: 1.2rem;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .tentang-img{
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .tentang-title{
+        text-align: center;
+        font-size: 80px;
+    }
+    .tentang .bg{
+      width: 20rem;
+    }
+    .tentang-info{
+      justify-content: center;
+      align-items: center;
+    }
+    .tentang-title{
+      font-size: 4rem;
+    }
+    .tentang-desk{
+      text-align: justify;
+      max-width: 100%;
+    }
+}

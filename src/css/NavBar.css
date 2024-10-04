@@ -1,0 +1,89 @@
+/* Default navbar background - transparent */
+.navbar {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Navbar background - dark */
+  .bg-dark {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+  }
+  .bg-transparent {
+    background-color: transparent !important;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Navbar background on scroll - dark with transparency */
+  .bg-dark-transparent {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    padding-top: 5rem;
+    padding-left: 1rem;
+    
+  }
+  
+  .sidebar.open {
+    left: 0; /* Show sidebar */
+  }
+  
+  /* Close button for sidebar */
+  .close-btn {
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Sidebar links styling */
+  .sidebar .nav-link {
+    color: white;
+    padding: 10px 0;
+    font-size: 18px;
+    display: block;
+  }
+  
+  /* Overlay styles for background dimming */
+  .side-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    transition: opacity 0.3s ease;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' height='30' width='30' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Mengganti ikon hamburger dengan ikon putih */
+  }
+  .navbar .nav-link{
+    font-family: "Aladin-Regular", sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 20px;
+  }
+  .sidebar  .nav-link{
+    font-family: "Aladin-Regular", sans-serif;
+    font-size: 1.5rem;
+    color: white;
+  }
+  .navbar-brand{
+    font-family: "Aladin-Regular", sans-serif;
+    font-size: 1.5rem;
+  }
