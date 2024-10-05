@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "Caveat-Bold";
+    src: url(../assets/fonts/Caveat-Bold.ttf);
+}
+
+/* Pastikan semua elemen tidak overflow */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mencegah overflow pada body */
+body {
+    overflow-x: hidden;
+}
+
+/* Menu Section */
+.menu-section {
+    max-width: 100vw; /* Gunakan 100vw untuk mengontrol lebar maksimal ke viewport */
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Image */
+.menu-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.05;
+    width: 100vw; /* Ubah width ke 100vw untuk memastikan tidak melebihi viewport */
+    min-height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Menu Container */
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+/* Menu Image */
+.menu-img {
+    width: 250px;
+    object-fit: contain; /* Untuk memastikan gambar tidak membesar melebihi ukuran */
+}
+
+/* Menu Title */
+.menu-title {
+    font-family: 'Aladin-Regular', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+}
+.menu-title span{
+    color: #B78E6F;
+}
+/* Menu Name */
+.menu-name {
+    font-family: 'Caveat-Bold', sans-serif;
+    font-size: 3.2rem;
+    text-align: center;
+}
