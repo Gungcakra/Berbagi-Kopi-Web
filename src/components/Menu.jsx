@@ -10,35 +10,35 @@ function Menu(){
                 <h1 className="text-center menu-title pt-5">Menu <span>Berbagi</span></h1>
                 <div className="row menu-container d-flex justify-content-center m-5">
                     {/* Menu List */}
-                    <div className="col-6 m-1 col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                    <div className="menu-card d-flex flex-column justify-content-center align-items-center">
                         <img src={kopiIimg} alt="" className="menu-img"/>
                         <h1 className="text-center menu-name">Expresso</h1>
                     </div>
-                    <div className="col-6 m-1 col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                    <div className="menu-card d-flex flex-column justify-content-center align-items-center">
                         <img src={kopiIimg} alt="" className="menu-img"/>
                         <h1 className="text-center menu-name">Expresso</h1>
                     </div>
-                    <div className="col-6 m-1 col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                    <div className="menu-card d-flex flex-column justify-content-center align-items-center">
                         <img src={kopiIimg} alt="" className="menu-img"/>
                         <h1 className="text-center menu-name">Expresso</h1>
                     </div>
-                    <div className="col-6 m-1 col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                    <div className="menu-card d-flex flex-column justify-content-center align-items-center">
                         <img src={kopiIimg} alt="" className="menu-img"/>
                         <h1 className="text-center menu-name">Expresso</h1>
                     </div>
-                    <div className="col-6 m-1 col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                    <div className="menu-card d-flex flex-column justify-content-center align-items-center">
                         <img src={kopiIimg} alt="" className="menu-img"/>
                         <h1 className="text-center menu-name">Expresso</h1>
                     </div>
-                    <div className="col-6 m-1 col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                    <div className="menu-card d-flex flex-column justify-content-center align-items-center">
                         <img src={kopiIimg} alt="" className="menu-img"/>
                         <h1 className="text-center menu-name">Expresso</h1>
                     </div>
-                    <div className="col-6 m-1 col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                    <div className="menu-card d-flex flex-column justify-content-center align-items-center">
                         <img src={kopiIimg} alt="" className="menu-img"/>
                         <h1 className="text-center menu-name">Expresso</h1>
                     </div>
-                    <div className="col-6 m-1 col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                    <div className="menu-card d-flex flex-column justify-content-center align-items-center">
                         <img src={kopiIimg} alt="" className="menu-img"/>
                         <h1 className="text-center menu-name">Expresso</h1>
                     </div>

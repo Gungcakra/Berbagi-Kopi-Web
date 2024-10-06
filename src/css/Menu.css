@@ -43,7 +43,10 @@ body {
     overflow: hidden;
     max-width: 100%;
 }
-
+.menu-card{
+    width: 15%;
+    margin: 10px;
+}
 /* Menu Image */
 .menu-img {
     width: 250px;
@@ -64,4 +67,11 @@ body {
     font-family: 'Caveat-Bold', sans-serif;
     font-size: 3.2rem;
     text-align: center;
+}
+@media only screen and (max-width: 767px) {
+
+    .menu-card{
+        width: 50%;
+    }
+
 }
