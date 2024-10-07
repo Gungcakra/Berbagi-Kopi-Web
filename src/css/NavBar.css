@@ -1,11 +1,11 @@
-/* Default navbar background - transparent */
+
 .navbar {
     transition: background-color 0.3s ease;
   }
   
   /* Navbar background - dark */
   .bg-dark {
-    background-color: rgba(0, 0, 0, 0.9) !important;
+    background-color: rgba(0, 0, 0, 1) !important;
   }
   .bg-transparent {
     background-color: transparent !important;

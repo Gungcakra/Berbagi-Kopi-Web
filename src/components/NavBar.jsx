@@ -12,10 +12,10 @@ function Navbar() {
   };
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Menu", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Galery", href: "#" },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#tentang" },
+    { name: "Menu", href: "#menu" },
+    { name: "Galery", href: "#galery" },
     { name: "Contact", href: "#" },
   ];
 
@@ -57,7 +57,7 @@ function Navbar() {
             style={{ maxWidth: "50px", padding: "0" }}
             className="ms-5"
           />
-          <a className="navbar-brand text-white" href="#">
+          <a className="navbar-brand text-white" href="#home">
             Berbagi Kopi
           </a>
           <button

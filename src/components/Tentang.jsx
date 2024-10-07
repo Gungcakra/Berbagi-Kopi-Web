@@ -15,7 +15,7 @@ export const Tentang = () => {
   return (
     <>
   
-    <div className="container tentang d-flex justify-content-center">
+    <div id="tentang" className="container tentang d-flex justify-content-center">
     <div className="row">
           <div className="tentang-img col-md-6 d-flex">
             <img className="bg" alt="Bg" src={about} data-aos="zoom-in" />

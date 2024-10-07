@@ -13,7 +13,7 @@ function Menu(){
       }, []);
     return (
         <>
-            <section className="container-fluid menu-section">
+            <section id="menu" className="container-fluid menu-section">
             <div className="menu-bg-mobile"></div>
             <img src={menuBg} alt="" className="menu-bg" />
                 <h1 className="text-center menu-title pt-5" data-aos="fade-up">Menu <span>Berbagi</span></h1>

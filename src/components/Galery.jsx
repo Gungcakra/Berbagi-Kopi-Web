@@ -18,7 +18,7 @@ function Galery() {
 
   return (
     <>
-      <div className="galery-section pt-5">
+      <div id="galery" className="galery-section pt-5 pb-5">
         <h1 className="text-center" data-aos="fade-up">
           <span>Berbagi</span> Galery
         </h1>
