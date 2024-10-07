@@ -2,9 +2,8 @@ import { useState } from 'react'
 import Home from './components/Home'
 import { Tentang } from './components/Tentang'
 import Menu from './components/Menu'
-
+import Galery from './components/Galery'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -12,6 +11,7 @@ function App() {
           <Home/>
           <Tentang  />
           <Menu />
+          <Galery />
        </div>
     </>
   )

@@ -68,3 +68,9 @@
       max-width: 100%;
     }
 }
+@media only screen and (min-width: 600px) and (max-width:767px) {
+  
+    .tentang .bg{
+      max-width: 20rem;
+    }
+}

@@ -73,5 +73,20 @@ body {
     .menu-card{
         width: 50%;
     }
+    .menu-bg{
+        display: none;
+    }
+    .menu-section::after {
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-image: url(../assets/images/menu-bg.png);
+        opacity: 0.05; /* Mengurangi opacity jika diinginkan */
+        width: 100%;
+        height: 100%; /* Memastikan background menutupi seluruh elemen */
+        content: '';
+        z-index: -1; /* Membuat latar belakang tetap di belakang konten */
+    }
+    
 
 }
