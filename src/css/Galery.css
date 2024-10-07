@@ -51,9 +51,6 @@
     height: 15rem;
 }
 
-.img-box{
-    filter: grayscale(1);
-}
 .img-container {
     overflow: hidden;
 }
