@@ -1,10 +1,10 @@
 import React from "react";
 import "../css/Galery.css";
-import galery1 from "../assets/images/galery1.png";
-import galery2 from "../assets/images/galery2.png";
-import galery3 from "../assets/images/galery3.png";
-import galery4 from "../assets/images/galery4.png";
-import galery5 from "../assets/images/galery5.png";
+import galery1 from "../assets/images/galery1.webp";
+import galery2 from "../assets/images/galery2.webp";
+import galery3 from "../assets/images/galery3.webp";
+import galery4 from "../assets/images/galery4.webp";
+import galery5 from "../assets/images/galery5.webp";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";

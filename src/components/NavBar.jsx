@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logoBerbagiPutih from "../assets/images/logoBerbagiPutih.png";
+import logoBerbagiPutih from "../assets/images/logoBerbagiPutih.webp";
 import "../css/NavBar.css";
 
 function Navbar() {

@@ -1,5 +1,5 @@
 import React from "react";
-import about from "../assets/images/about.png";
+import about from "../assets/images/about.webp";
 import "../css/Tentang.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
