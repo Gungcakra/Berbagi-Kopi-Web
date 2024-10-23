@@ -1,10 +1,16 @@
 @font-face {
     font-family: 'Caveat';
-    src: url('../assets/fonts/Caveat.ttf')format('truetype'); /* Sesuaikan dengan jenis file */
+    src: url('../assets/fonts/Caveat.ttf')format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
   }
 @font-face {
     font-family: 'Caveat_Bold';
-    src: url('../assets/fonts/Caveat-Bold.ttf')format('truetype'); /* Sesuaikan dengan jenis file */
+    src: url('../assets/fonts/Caveat-Bold.ttf')format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
   }
 
 .home-section {
