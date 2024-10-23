@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
     top: -100px;
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 .overlay {
@@ -60,6 +60,14 @@
     font-size: 1.6rem;
     padding: 12px;
     margin: 5px;
+    border: 1px solid transparent;
     font-family: "Aladin-Regular",sans-serif;
+    color: white;
+    transition: 0.3s ease-in-out;
 }
-
+.home-section .btn-menu:hover{
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid #AF8260;
+    color: #AF8260;
+}
