@@ -9,7 +9,7 @@
 
 .home-section {
     position: relative;
-    background-image: url('../assets/images/bg.png'); /* Ganti dengan link gambar kamu */
+    background-image: url('../assets/images/bg.webp'); /* Ganti dengan link gambar kamu */
     background-size: cover;
     background-position: center;
     height: 120vh;
