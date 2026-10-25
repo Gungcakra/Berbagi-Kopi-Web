@@ -1,92 +1,256 @@
-@font-face {
-    font-family: "Caveat-Bold";
-    src: url(../assets/fonts/Caveat-Bold.ttf);
+.menu {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 
-/* Pastikan semua elemen tidak overflow */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* topographic lines in the corners, like the menu book pages */
+.menu-contour { z-index: -1; width: 460px; height: 440px; }
+.menu-contour-a { left: -160px; top: 40px; }
+.menu-contour-b { right: -170px; bottom: 60px; transform: rotate(180deg); }
+
+/* ---------- tabs ---------- */
+.tabs-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 32px;
+}
+.tabs {
+  display: flex;
+  gap: 6px;
+  max-width: 100%;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: background 0.25s, color 0.25s;
+}
+.tabs button:hover { color: var(--ink); }
+.tabs button.is-active { background: var(--wine); color: #fff; }
+
+.menu-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: menu-in 0.5s var(--ease) both;
+}
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(14px); }
 }
 
-/* Mencegah overflow pada body */
-body {
-    overflow-x: hidden;
+.menu-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--ochre);
+  text-align: center;
 }
 
-/* Menu Section */
-.menu-section {
-    max-width: 100vw; /* Gunakan 100vw untuk mengontrol lebar maksimal ke viewport */
-    min-height: 100vh;
-    overflow: hidden;
-    position: relative;
+/* ---------- price boards ---------- */
+/* masonry-style columns so short boards don't leave holes */
+.boards {
+  columns: 3 320px;
+  column-gap: 20px;
+}
+.boards > .board {
+  break-inside: avoid;
+  margin-bottom: 20px;
 }
 
-/* Background Image */
-.menu-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.05;
-    width: 100vw; /* Ubah width ke 100vw untuk memastikan tidak melebihi viewport */
-    min-height: 100vh;
-    z-index: -1;
-    overflow: hidden;
+.board {
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
-/* Menu Container */
-.menu-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: hidden;
-    max-width: 100%;
+/* wine header band with uppercase title, as printed in the book */
+.board-head {
+  padding: 16px 22px;
+  background: var(--wine);
+  color: #fff;
 }
-.menu-card{
-    width: 15%;
-    margin: 10px;
+.board-head h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
-/* Menu Image */
-.menu-img {
-    width: 250px;
-    object-fit: contain; /* Untuk memastikan gambar tidak membesar melebihi ukuran */
+.board-head p {
+  margin-top: 2px;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--on-wine-accent);
 }
 
-/* Menu Title */
-.menu-title {
-    font-family: 'Aladin-Regular', sans-serif;
-    font-size: 4rem;
-    text-align: center;
+.board-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
 }
-.menu-title span{
-    color: #B78E6F;
-}
-/* Menu Name */
-.menu-name {
-    font-family: 'Caveat-Bold', sans-serif;
-    font-size: 3.2rem;
-    text-align: center;
-}
-@media only screen and (max-width: 767px) {
 
-    .menu-card{
-        width: 50%;
-    }
-    .menu-bg{
-        display: none;
-    }
-    .menu-section::after {
-        top: 0;
-        left: 0;
-        position: absolute;
-        background-image: url(../assets/images/menu-bg.png);
-        opacity: 0.05; /* Mengurangi opacity jika diinginkan */
-        width: 100%;
-        height: 100%; /* Memastikan background menutupi seluruh elemen */
-        content: '';
-        z-index: -1; /* Membuat latar belakang tetap di belakang konten */
-    }
-    
+.board-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 10px 10px 0;
+}
+.board-photos img {
+  width: 100%;
+  aspect-ratio: 1.3;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
+.board-body { padding: 10px 22px 18px; }
+.board-row {
+  display: grid;
+  grid-template-columns: 1fr repeat(var(--cols), 56px);
+  align-items: baseline;
+  gap: 8px;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.board-row:last-child { border-bottom: 0; }
+.board-cols { align-items: center; padding: 6px 0 8px; border-bottom: 0; }
+
+/* Hot / Ice tags: bold serif italic on wine */
+.temp-pill {
+  justify-self: end;
+  min-width: 48px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--wine);
+  color: #fff;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.board-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.board-name small {
+  margin-top: 2px;
+  font-size: 0.76rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.board-price {
+  justify-self: end;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--wine);
+  font-variant-numeric: tabular-nums;
+}
+.board-price.is-na { color: var(--line); font-weight: 400; }
+
+.board-foot {
+  padding: 12px 22px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ---------- photo cards ---------- */
+.dish-group { margin-bottom: 20px; }
+.dish-title {
+  margin-bottom: 16px;
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+.dish {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s;
+}
+.dish:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+
+/* product shots were taken on the book's paper backdrop */
+.dish-img {
+  aspect-ratio: 1.4;
+  background: var(--bg);
+  overflow: hidden;
+}
+.dish-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.dish:hover .dish-img img { transform: scale(1.06); }
+
+.dish-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 18px 18px;
+}
+.dish-body h4 {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--wine);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.dish-body p {
+  flex: 1;
+  margin: 6px 0 14px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.dish-prices { display: flex; flex-wrap: wrap; gap: 6px; }
+
+@media (max-width: 640px) {
+  .tabs-wrap { justify-content: flex-start; margin: 0 -16px 24px; padding: 0 16px; }
+  .tabs button { padding: 9px 16px; font-size: 0.82rem; }
+  .boards > .board { margin-bottom: 16px; }
+  .board-img img { height: 180px; }
+  .board-head, .board-body { padding-left: 18px; padding-right: 18px; }
+  .dish-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .dish { border-radius: 20px; }
+  .dish-body { padding: 12px; }
+  .dish-body h4 { font-size: 0.86rem; }
+  .dish-body p { display: none; }
+  .menu-contour { width: 300px; height: 290px; }
 }

@@ -1,0 +1,356 @@
+/*
+ * Self-hosted latin subsets (Fontsource, OFL), preloaded from index.html.
+ * The app only paints after the JS bundle runs, and the preloads download in
+ * parallel with it — so `block` means text appears once, in the right font,
+ * instead of flashing the fallback and swapping.
+ */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('../assets/fonts/montserrat-latin-wght-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('../assets/fonts/fraunces-latin-opsz-italic.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('../assets/fonts/caveat-latin-700-normal.woff2') format('woff2');
+}
+
+:root {
+  /* palette sampled from the Berbagi menu book (Menu Peguyangan BRK 2024) */
+  --bg: #F6F5F0;          /* menu paper — also the backdrop of every product photo */
+  --surface: #FFFFFF;
+  --sand: #EFEAE1;
+  --sand-2: #E5DCCE;
+  --line: #E6DED3;
+  --ink: #2A1A1D;
+  --ink-2: #4E3539;
+  --muted: #7D6A6C;
+  --wine: #6C2932;        /* menu header / pills */
+  --wine-2: #7A2632;      /* sunburst rays */
+  --wine-deep: #521D25;
+  --ochre: #A7691D;       /* sunburst accent rays */
+  --ochre-2: #C08A3E;
+  --ochre-soft: #F2E6D2;
+  --sun: #FCE365;         /* mascot yellow */
+  --on-wine-accent: #F4C76A;
+  --on-wine-muted: #E6CBCF;
+  --on-wine-faint: #C9A3A9;
+
+  --font-display: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-accent: 'Fraunces', Georgia, serif;
+  --font-script: 'Caveat', cursive;
+
+  --radius-lg: 28px;
+  --radius: 20px;
+  --radius-sm: 14px;
+  --shadow-sm: 0 1px 2px rgba(74, 24, 32, 0.05), 0 4px 14px rgba(74, 24, 32, 0.05);
+  --shadow: 0 2px 6px rgba(74, 24, 32, 0.06), 0 18px 40px -12px rgba(74, 24, 32, 0.22);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --nav-h: 76px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 8px);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--wine);
+}
+
+/* serif-italic accent, like "Berbagi Kopi - Mas" / "Hot / Ice" in the menu book */
+h1 em, h2 em, h3 em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ochre);
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 56px 0;
+}
+
+/* ---------- shared bits ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: transform 0.25s var(--ease), background 0.25s, box-shadow 0.25s, color 0.25s;
+}
+.btn svg { transition: transform 0.25s var(--ease); }
+.btn:hover svg { transform: translateX(3px); }
+.btn:active { transform: scale(0.97); }
+
+.btn-sm { height: 44px; padding: 0 20px; font-size: 0.875rem; }
+
+.btn-dark {
+  background: var(--wine);
+  color: #fff;
+  box-shadow: 0 10px 24px -10px rgba(74, 24, 32, 0.7);
+}
+.btn-dark:hover { background: var(--wine-deep); }
+
+.btn-soft {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.btn-soft:hover { border-color: var(--ochre-2); color: var(--wine); }
+
+.btn-light {
+  background: #fff;
+  color: var(--wine);
+}
+.btn-light:hover { background: var(--ochre-soft); }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--ochre-soft);
+  color: var(--wine);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.pill-dark {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--on-wine-accent);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ochre);
+}
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.eyebrow-light { color: var(--on-wine-accent); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.card-head h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+}
+.card-head h3 svg { color: var(--ochre); }
+
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  transition: color 0.2s;
+}
+.link-more:hover { color: var(--wine); }
+
+.icon-box {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: var(--sand);
+  color: var(--wine);
+}
+
+.section-head {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+.section-head h2 {
+  margin: 14px 0 12px;
+  font-size: clamp(2rem, 4.4vw, 3rem);
+}
+.section-head p { color: var(--muted); text-wrap: balance; }
+
+.section-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  text-align: center;
+}
+.section-cta small { font-size: 0.8rem; color: var(--muted); }
+
+/* price chip — wine on ochre-soft, with an optional italic label */
+.price-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--ochre-soft);
+  color: var(--wine);
+  font-size: 0.85rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.price-tag svg { align-self: center; }
+.price-tag em {
+  font-family: var(--font-accent);
+  font-weight: 600;
+  color: var(--ochre);
+}
+
+/* ---------- brand decorations from the menu book ---------- */
+/* maroon sunburst (menu cover) — put on a dark card, content sits above */
+.sunburst {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--wine);
+}
+.sunburst::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: 250%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    from 0deg,
+    var(--wine) 0deg 5deg,
+    var(--wine-2) 5deg 10deg,
+    var(--wine) 10deg 15deg,
+    rgba(167, 105, 29, 0.55) 15deg 17deg,
+    var(--wine-2) 17deg 22.5deg
+  );
+  mask-image: radial-gradient(circle, transparent 6%, #000 40%);
+  -webkit-mask-image: radial-gradient(circle, transparent 6%, #000 40%);
+  opacity: 0.9;
+}
+.sunburst-origin-right::before { left: 85%; top: 60%; }
+.sunburst-origin-left::before { left: 10%; top: 50%; }
+
+/* topographic contour lines (menu page corners) */
+.contour {
+  position: absolute;
+  pointer-events: none;
+  background: url('../assets/images/brk/contour.svg') center / contain no-repeat;
+}
+
+@media (max-width: 640px) {
+  :root { --nav-h: 68px; }
+  .container { padding: 0 16px; }
+  .section { padding: 40px 0; }
+  .card { border-radius: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,207 @@
+.lokasi-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 20px;
+}
+
+/* ---------- location picker ---------- */
+.loc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loc-card {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+.loc-card:hover { border-color: var(--ochre-2); }
+.loc-card.is-active {
+  background: var(--wine);
+  border-color: var(--wine);
+  box-shadow: var(--shadow);
+}
+
+.loc-select {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+/* whole card is clickable, the Maps link sits above the overlay */
+.loc-select::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.loc-num {
+  width: 36px;
+  flex-shrink: 0;
+  font-family: var(--font-accent);
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1;
+  color: var(--ochre);
+}
+.loc-thumb {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.loc-body { display: flex; flex-direction: column; gap: 4px; }
+.loc-body strong {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--wine);
+}
+.loc-body small { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+
+.loc-maps {
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 132px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--wine);
+}
+.loc-maps:hover { text-decoration: underline; }
+
+.loc-card.is-active .loc-body strong { color: #fff; }
+.loc-card.is-active .loc-body small { color: var(--on-wine-muted); }
+.loc-card.is-active .loc-num { color: var(--on-wine-accent); }
+.loc-card.is-active .loc-maps { color: var(--on-wine-accent); }
+
+/* ---------- map ---------- */
+.loc-map {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  padding: 0;
+  background: var(--sand);
+}
+.loc-map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: sepia(0.25) saturate(0.9);
+}
+.loc-map-label {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow);
+  pointer-events: none;
+}
+.loc-map-label svg { color: var(--wine); }
+.loc-map-label span { display: flex; flex-direction: column; line-height: 1.2; }
+.loc-map-label strong { font-size: 0.88rem; }
+.loc-map-label small { font-size: 0.74rem; color: var(--muted); }
+
+/* ---------- invite (dark) ---------- */
+.invite-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  margin-top: 20px;
+  padding: 40px 44px;
+  border-color: var(--wine);
+}
+.invite-watermark {
+  position: absolute;
+  left: 40%;
+  bottom: -50px;
+  width: 220px;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.invite-copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.invite-card h3 {
+  max-width: 560px;
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+.invite-card h3 em { color: var(--on-wine-accent); }
+
+.invite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+.btn-ghost {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
+
+.invite-art { position: relative; }
+.invite-mascot {
+  position: absolute;
+  left: -40px;
+  top: -20px;
+  width: 110px;
+  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.3));
+  animation: wiggle 5s ease-in-out infinite;
+}
+.invite-cup {
+  position: relative;
+  width: 260px;
+  margin: -30px -10px -50px 0;
+  filter: drop-shadow(0 26px 26px rgba(0, 0, 0, 0.45));
+  transform: rotate(-8deg);
+  transition: transform 0.6s var(--ease);
+}
+.invite-card:hover .invite-cup { transform: rotate(-3deg) scale(1.03); }
+
+@media (max-width: 960px) {
+  .lokasi-grid { grid-template-columns: 1fr; }
+  .loc-map { min-height: 340px; }
+}
+
+@media (max-width: 640px) {
+  .loc-card { padding: 16px; }
+  .loc-maps { margin-left: 0; }
+  .loc-thumb { width: 52px; height: 52px; }
+  .loc-map { min-height: 300px; }
+  .invite-card { grid-template-columns: 1fr; padding: 28px 20px 0; }
+  .invite-actions .btn { flex: 1; }
+  .invite-art { justify-self: center; }
+  .invite-cup { width: 200px; margin: 0 auto -24px; }
+  .invite-mascot { width: 84px; left: -50px; top: 0; }
+}

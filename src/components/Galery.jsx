@@ -1,73 +1,89 @@
-import React from "react";
+import { useState, useEffect, useCallback } from "react";
 import "../css/Galery.css";
-import galery1 from "../assets/images/galery1.webp";
-import galery2 from "../assets/images/galery2.webp";
-import galery3 from "../assets/images/galery3.webp";
-import galery4 from "../assets/images/galery4.webp";
-import galery5 from "../assets/images/galery5.webp";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from "react";
-function Galery() {
+import Icon from "./Icon";
+import { GALLERY, LINKS } from "../data";
 
-    useEffect(() => {
-        AOS.init({
-          duration: 500,
-        });
-      }, []);
+function Galery() {
+  const [open, setOpen] = useState(null);
+
+  const step = useCallback(
+    (dir) => setOpen((i) => (i + dir + GALLERY.length) % GALLERY.length),
+    []
+  );
+
+  useEffect(() => {
+    if (open === null) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(null);
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open, step]);
 
   return (
-    <>
-      <div id="galery" className="galery-section pt-5 pb-5">
-        <h1 className="text-center" data-aos="fade-up">
-          <span>Berbagi</span> Galery
-        </h1>
-        <div className="galery-container container">
-          <div className="row">
-            <div className="col-lg-4 img-container">
-              <div
-                data-aos="zoom-out" className="img-box galery-img1"
-                style={{
-                  backgroundImage: `url(${galery1})`
-                }}
-              ></div>
-            </div>
-            <div className="col-lg-8">
-              <div className="row">
-                <div className="col-lg-8 col-md-6 col-sm-6 img-container">
-                  <div data-aos="zoom-out" className="img-box galery-img2"  style={{
-                  backgroundImage: `url(${galery2})`
-                }}>
-                   
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-6 img-container">
-                  <div data-aos="zoom-out" className="img-box galery-img3"  style={{
-                  backgroundImage: `url(${galery3})`
-                }}>
-                   
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-6 img-container">
-                  <div data-aos="zoom-out" className="img-box galery-img4"  style={{
-                  backgroundImage: `url(${galery4})`
-                }}>
-                   
-                  </div>
-                </div>
-                <div className="col-lg-8 col-md-6 col-sm-6 img-container">
-                  <div data-aos="zoom-out" className="img-box galery-img5"  style={{
-                  backgroundImage: `url(${galery5})`
-                }}>
-                   
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section id="galeri" className="section galeri">
+      <div className="container">
+        <header className="section-head" data-aos="fade-up">
+          <span className="eyebrow">Galeri</span>
+          <h2>
+            Momen di <em>Berbagi</em>
+          </h2>
+          <p>Sudut-sudut favorit, musik di taman, dan obrolan yang nggak ada habisnya.</p>
+        </header>
+
+        <div className="galeri-grid">
+          {GALLERY.map((g, i) => (
+            <button
+              key={g.caption}
+              type="button"
+              className={`galeri-item g${i + 1}`}
+              onClick={() => setOpen(i)}
+              data-aos="zoom-in"
+              data-aos-delay={i * 60}
+            >
+              <img src={g.src} alt={g.caption} loading="lazy" width={g.w} height={g.h} />
+              <span className="galeri-caption">
+                {g.caption}
+                <Icon name="expand" size={16} />
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div className="section-cta">
+          <a href={LINKS.gallery} target="_blank" rel="noreferrer" className="btn btn-soft">
+            <Icon name="images" size={18} /> Lihat Lebih Banyak Foto
+          </a>
         </div>
       </div>
-    </>
+
+      {open !== null && (
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label={GALLERY[open].caption} onClick={() => setOpen(null)}>
+          <figure onClick={(e) => e.stopPropagation()}>
+            <img src={GALLERY[open].src} alt={GALLERY[open].caption} />
+            <figcaption>
+              {GALLERY[open].caption}
+              <span>{open + 1} / {GALLERY.length}</span>
+            </figcaption>
+          </figure>
+          <button type="button" className="lb-btn lb-close" aria-label="Tutup" onClick={() => setOpen(null)}>
+            <Icon name="close" size={22} />
+          </button>
+          <button type="button" className="lb-btn lb-prev" aria-label="Sebelumnya" onClick={(e) => { e.stopPropagation(); step(-1); }}>
+            <Icon name="chevronLeft" size={24} />
+          </button>
+          <button type="button" className="lb-btn lb-next" aria-label="Berikutnya" onClick={(e) => { e.stopPropagation(); step(1); }}>
+            <Icon name="chevronRight" size={24} />
+          </button>
+        </div>
+      )}
+    </section>
   );
 }
 
